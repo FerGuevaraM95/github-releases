@@ -1,19 +1,19 @@
 import React, { PropTypes } from 'react';
 
 /**
+ * Props del componente
+ */
+const propTypes = {
+  date: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.string
+  ]).isRequired
+};
+
+/**
  * Recibe una fecha y la muestra correctamente en la UI
  */
 class FormattedDate extends React.PureComponent {
-  /**
-   * Props del componente
-   */
-  static propTypes = {
-    date: PropTypes.oneOfType([
-      PropTypes.number,
-      PropTypes.string
-    ]).isRequired
-  };
-
   // Obtenemos un objeto date válido
   get parsedDate() {
     let date = new Date(),
@@ -46,4 +46,5 @@ class FormattedDate extends React.PureComponent {
 }
 
 // Export the class
+FormattedDate.propTypes = propTypes;
 export default FormattedDate;

@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from "prop-types";
 
 // Componentes
 import ExternalLink from '../ExternalLink';
@@ -6,16 +7,16 @@ import FormattedDate from '../FormattedDate';
 import GithubAvatar from '../GithubAvatar';
 
 /**
+* Props del componente
+*/
+const propTypes = {
+  release: PropTypes.object.isRequired
+}
+
+/**
  * Muestra una release de un repositorio
  */
 class ReleaseRow extends React.PureComponent {
-  /**
-   * Props del componente
-   */
-  static propTypes = {
-    release: PropTypes.object.isRequired
-  }
-
   // Retornamos el nombre basándonos en el Name o el tag si el primero no está
   // disponible
   get releaseName() {
@@ -47,4 +48,5 @@ class ReleaseRow extends React.PureComponent {
 }
 
 // Export the class
+ReleaseRow.propTypes = propTypes;
 export default ReleaseRow;

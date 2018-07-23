@@ -1,22 +1,23 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from "prop-types";
 
 // Componentes
 import HintMessage from '../HintMessage';
 import ReleaseRow from '../ReleaseRow';
 
 /**
+ * Props of the component
+ */
+const propTypes = {
+  releases: PropTypes.arrayOf(PropTypes.object).isRequired,
+  loading: PropTypes.bool.isRequired,
+  repoName: PropTypes.string.isRequired
+}
+
+/**
  * Muestra la lista de Releases
  */
 class ReleaseList extends React.PureComponent {
-  /**
-   * Props of the component
-   */
-  static propTypes = {
-    releases: PropTypes.arrayOf(PropTypes.object).isRequired,
-    loading: PropTypes.bool.isRequired,
-    repoName: PropTypes.string.isRequired
-  }
-
   renderMessage() {
     let text = '';
 
@@ -66,4 +67,5 @@ class ReleaseList extends React.PureComponent {
 }
 
 // Export the class
+ReleaseList.propTypes = propTypes;
 export default ReleaseList;

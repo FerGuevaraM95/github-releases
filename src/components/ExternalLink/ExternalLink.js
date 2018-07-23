@@ -1,27 +1,28 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
+
+/**
+ * Props del componente
+ */
+const propTypes = {
+to: PropTypes.string.isRequired,
+children: PropTypes.oneOfType([
+  PropTypes.string,
+  PropTypes.node,
+  PropTypes.element
+]).isRequired,
+className: PropTypes.string
+};
+
+// Por defecto, el link no tiene ninguna clase
+const defaultProps = {
+  className: ''
+}
 
 /**
  * Muestra un link que se abrirá en una nueva página
  */
 class ExternalLink extends React.PureComponent {
-  /**
-   * Props del componente
-   */
-  static propTypes = {
-    to: PropTypes.string.isRequired,
-    children: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.node,
-      PropTypes.element
-    ]).isRequired,
-    className: PropTypes.string
-  };
-
-  // Por defecto, el link no tiene ninguna clase
-  static defaultProps = {
-    className: ''
-  }
-
   /**
    * Renderizamos el link
    */
@@ -34,4 +35,6 @@ class ExternalLink extends React.PureComponent {
 }
 
 // Export the class
+ExternalLink.propTypes = propTypes;
+ExternalLink.defaultProps = defaultProps;
 export default ExternalLink;

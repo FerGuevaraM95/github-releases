@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
 // Estilos
 import './GithubAvatar.css';
@@ -7,22 +8,22 @@ import './GithubAvatar.css';
 import ExternalLink from '../ExternalLink';
 
 /**
+ * Props del componente
+ */
+  const propTypes = {
+  // Este objeto viene en las respuestas de la API de Github
+  // Requerimos las propiedades que necesitamos
+    author: PropTypes.shape({
+    login: PropTypes.string.isRequired,
+    avatar_url: PropTypes.string.isRequired,
+    html_url: PropTypes.string.isRequired
+  }).isRequired
+}
+
+/**
  * Muestra un link con el nombre del usuario y su avatar
  */
 class GithubAvatar extends React.PureComponent {
-  /**
-   * Props del componente
-   */
-  static propTypes = {
-    // Este objeto viene en las respuestas de la API de Github
-    // Requerimos las propiedades que necesitamos
-    author: PropTypes.shape({
-      login: PropTypes.string.isRequired,
-      avatar_url: PropTypes.string.isRequired,
-      html_url: PropTypes.string.isRequired
-    }).isRequired
-  }
-
   /**
    * Renderizamos el usuario
    */
@@ -38,4 +39,5 @@ class GithubAvatar extends React.PureComponent {
 }
 
 // Export the class
+ExternalLink.propTypes = propTypes;
 export default GithubAvatar;
